@@ -1,47 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Proxy Test</title>
-	
-    </head>
-    <body>
-        <div>Proxy Test!!</div>
-    </body>
-	<script>
-	
-	
-	// urls : 
-	// https://jsonplaceholder.typicode.com/todos
-	// https://example.com/answer
-	// https://codepen.io/PierBotteroWeb/pen/yLywbyZ
-	
-	
-	// Example POST method implementation:
-async function postData(url = '', data = {}) {
-  // Default options are marked with *
-  const response = await fetch(url, {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'cors', // no-cors, *cors, same-origin
-    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
- 
-    headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
- 
-    body: JSON.stringify(data) // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
-var pr= "http://localhost:8080/";
 
-postData(pr+'https://superheroapi.com/api/2313113182087527/'+2+'/biography', { answer: 42 })
-  .then((data) => {
-    console.log(data); // JSON data parsed by `data.json()` call
-  });
-	
-	</script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./test.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <title>Proxy Test</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style="margin: 12px">
+      <h2>Proxy Test</h2>
+    </div>
+
+    <div id="requestDiv">
+      <div class="row">
+        <div class="col">
+          <form class="row g-3">
+            <div class="col-12">
+              <label for="proxyUrl" class="form-label">Proxy Url</label>
+              <input type="proxy" class="form-control" id="proxyUrl" value="http://localhost:8080"
+                placeholder="http://localhost:8080" />
+            </div>
+            <div class="col-md-9">
+              <label for="actualUrl" class="form-label">Actual Url</label>
+              <input type="url" class="form-control" id="actualUrl"
+                value="https://superheroapi.com/api/2313113182087527/1/biography"
+                placeholder="https://superheroapi.com/api/2313113182087527/1/biography" />
+            </div>
+            <div class="col-md-3">
+              <label for="method" class="form-label">Method</label>
+              <select id="method" class="form-select" onChange="onChangeMethod(this.value)">
+                <option selected value="GET">GET</option>
+                <option value="POST">POST</option>
+              </select>
+            </div>
+            <div class="col-12" id="postDataDiv" style="display: none">
+              <label for="postData" class="form-label">Post Data (Json String)</label>
+              <textarea class="form-control" id="postData" placeholder="{}"></textarea>
+            </div>
+            <div class="row text-center" style="margin-top: 10px;">
+              <div class="col">
+                <button type="button" id="executeBtn" class="btn btn-primary">
+                  Execute
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="responseDiv" style="display: none">
+      <div class="row text-center">
+        <div class="col">
+          <h5>Result:</h5>
+          <dl id="flatValues" class="row text-nowrap text-start text-capitalize" style="margin-left: 15px"></dl>
+        </div>
+        <div class="col">
+          <h5>Json Output:</h5>
+          <textarea class="form-control" id="textAreaResponse"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <figure class="text-end fixed-top" style="margin-right: 10px">
+    <blockquote class="blockquote">
+      <p>Let's Make It Simpler!</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      <cite title="Vikrant">Vikrant </cite>
+    </figcaption>
+  </figure>
+  <script src="./test.js"></script>
+</body>
+
 </html>

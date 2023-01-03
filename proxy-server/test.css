@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+.img {
+  max-height: 700px;
+  max-width: 500px;
+}
+
+#textAreaResponse {
+  width: 90%;
+  height: 93%;
+  font-size: 1rem !important;
+  line-height: 1.1rem !important;
+}
+
+.input-div {
+  margin: 16px;
+  padding: 16px;
+}
