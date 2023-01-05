@@ -35,6 +35,11 @@ router.get('/sitemap',function(req,res){
 //add the router
 app.use('/', router);
 
+//static content
+// app.use(express.static(__dirname + "/public/"));
+// app.use(express.static(__dirname + "/css/"));
+app.use(express.static(__dirname));
+
 app.listen(port, () => {            	//server starts listening for any attempts from a client to connect at port: {port}
     console.log(`Now listening on port ${port}`); 
 });
