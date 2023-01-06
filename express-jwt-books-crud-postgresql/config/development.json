@@ -1,0 +1,5 @@
+{
+  "jwtSecret": "worldisfullofdevelopers",
+  "username" : "username",
+  "password" : "password"
+}
