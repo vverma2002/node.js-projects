@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Express Server Sample",
   "main": "server.js",
-  "proxy":"http://googl.ecom",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

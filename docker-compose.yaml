@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  node-js:
+    container_name: node-js
+    build:
+      context: .
+    ports:
+      - "4000:8080"
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 250M
+        reservations:
+          memory: 250M
